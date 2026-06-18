@@ -29,16 +29,14 @@ app.get('/bmi', (req,res) =>{
 });
 
 app.post('/exercises', (req, res) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const {daily_exercises, target} = req.body;
+  
+    const {daily_exercises,target} = req.body;
 
     if(!target || !daily_exercises){
      res.status(400).send({error: 'parameters missing'});
     }
     
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const allNumbers = daily_exercises.map(Number);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    const allNumbers: number[] = daily_exercises.map(Number);
     if (isNaN(Number(target)) || allNumbers.some(isNaN) ){
         res.status(400).send({error: 'malformatted parameters'});
     }

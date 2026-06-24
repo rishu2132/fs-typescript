@@ -6,6 +6,7 @@ const getDiagnosis = ():Diagnosis[] => {
 };
 
 
+
 export default {
     getDiagnosis
 };
